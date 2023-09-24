@@ -38,3 +38,6 @@ Antes de começar a realizar o teste prático, certifique-se de atender aos segu
 
 * Criar um endpoint que permita consultar o endereço funcional (da unidade onde o servidor é lotado) a partir de uma parte do nome do servidor efetivo.
 
+
+
+
