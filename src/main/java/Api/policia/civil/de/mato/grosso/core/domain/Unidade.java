@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "unidade")
+@Table(name = "Unidade")
 @Entity(name = "Unidade")
 @Getter
 @Setter

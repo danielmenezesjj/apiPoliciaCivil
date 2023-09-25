@@ -9,7 +9,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Table(name = "pessoa")
+@Table(name = "Pessoa")
 @Entity(name = "Pessoa")
 @NoArgsConstructor
 @Getter

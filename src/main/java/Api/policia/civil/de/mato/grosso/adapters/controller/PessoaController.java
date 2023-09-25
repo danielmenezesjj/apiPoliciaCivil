@@ -2,7 +2,7 @@ package Api.policia.civil.de.mato.grosso.adapters.controller;
 
 import Api.policia.civil.de.mato.grosso.adapters.dtos.PessoaDTO;
 import Api.policia.civil.de.mato.grosso.core.domain.Pessoa;
-import Api.policia.civil.de.mato.grosso.infrastructure.repository.PessoaRepository;
+import Api.policia.civil.de.mato.grosso.infrastructure.repository.Pessoa.PessoaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,8 @@
 package Api.policia.civil.de.mato.grosso.adapters.controller;
 
-import Api.policia.civil.de.mato.grosso.adapters.dtos.PessoaDTO;
 import Api.policia.civil.de.mato.grosso.adapters.dtos.UnidadeDTO;
 import Api.policia.civil.de.mato.grosso.core.domain.Unidade;
-import Api.policia.civil.de.mato.grosso.infrastructure.repository.UnidadeRepository;
+import Api.policia.civil.de.mato.grosso.infrastructure.repository.Unidade.UnidadeRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
