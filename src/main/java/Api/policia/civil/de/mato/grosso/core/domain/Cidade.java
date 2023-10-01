@@ -23,8 +23,7 @@ public class Cidade {
     private int cid_id;
     private String cid_nome;
     private String cid_uf;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "cid_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cidade")
     private List<Endereco> enderecoList;
 
 

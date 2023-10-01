@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Entity(name = "Unidade")
 @Getter
@@ -21,6 +23,16 @@ public class Unidade {
     private Integer unid_id;
     private String unid_nome;
     private String unid_sigla;
+
+
+    @ManyToMany
+    @JoinTable(name = "unidade_endereco", joinColumns = @JoinColumn(name = "unid_id"), inverseJoinColumns = @JoinColumn(name = "end_id"))
+    private List<Endereco> enderecoList;
+
+    @OneToMany(mappedBy = "unidade", cascade = CascadeType.ALL)
+    private List<Lotacao> lotacaoList;
+
+
 
     public Unidade(UnidadeDTO data) {
         this.unid_nome = data.unid_nome();

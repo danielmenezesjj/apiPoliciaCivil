@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "Pessoa")
 @NoArgsConstructor
@@ -18,11 +19,34 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pes_id;
+
     private String pes_nome;
+
     private Date pes_data_nascimento;
+
     private String pes_sexo;
+
     private String pes_mae;
+
     private String pes_pai;
+
+    @ManyToMany
+    @JoinTable(name = "pessoa_endereco", joinColumns = @JoinColumn(name = "pes_id"), inverseJoinColumns = @JoinColumn(name = "end_id"))
+    private List<Endereco> enderecoList;
+
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private List<FotoPessoa> fotoPessoaList;
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private List<ServidorTemporario> servidorTemporarioList;
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private List<ServidorEfetivo> servidorEfetivoList;
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private List<Lotacao> lotacaoList;
+
 
     public Pessoa(PessoaDTO data) {
         this.pes_nome = data.pes_nome();
