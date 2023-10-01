@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "Cidade")
+import java.util.List;
+
+
 @Entity(name = "Cidade")
 @Getter
 @Setter
@@ -21,10 +23,24 @@ public class Cidade {
     private int cid_id;
     private String cid_nome;
     private String cid_uf;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "cid_id")
+    private List<Endereco> enderecoList;
 
 
     public Cidade(CidadeDTO data) {
         this.cid_nome = data.cid_nome();
         this.cid_uf = data.cid_uf();
+    }
+
+    public void update(CidadeDTO data) {
+
+        if(data.cid_nome() != null){
+            this.cid_nome = data.cid_nome();
+        }
+        if(data.cid_uf() != null){
+            this.cid_uf = data.cid_uf();
+        }
+
     }
 }
