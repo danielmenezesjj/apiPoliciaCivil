@@ -21,6 +21,7 @@ public class CidadeBusiness {
 
     public Page<Cidade> findAll(Pageable pageable){
         return cidadeRepository.findAll(pageable);
+        //ok
     }
 
     public Cidade findOne(Integer cid_id) throws EntityNotExistException{

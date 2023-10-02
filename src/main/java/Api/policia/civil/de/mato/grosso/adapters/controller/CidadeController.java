@@ -34,6 +34,7 @@ public class CidadeController {
     public ResponseEntity<Page<Cidade>> getAllCity(Pageable pageable) {
         Page<Cidade> allCity = cidadeBusiness.findAll(pageable);
         return ResponseEntity.ok(allCity);
+        //ok
     }
 
     @GetMapping("/{cid_id}")
