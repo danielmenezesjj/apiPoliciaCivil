@@ -12,21 +12,22 @@ Antes de começar a realizar o teste prático, certifique-se de atender aos segu
 
 # Requisitos Gerais:
 
-* Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao endpoint a partir de domínios diversos do qual estará hospedado o serviço;
+- [ ] Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
+endpoint a partir de domínios diversos do qual estará hospedado o serviço
 
-* A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de renovação do período;
+- [ ] A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
+renovação do período
 
-* Implementar pelo menos os verbos post, put, get;
+- [X] Implementar pelo menos os verbos post, put, get
 
-* Conter recursos de paginação em todas as consultas;
+- [X] Conter recursos de paginação em todas as consultas
 
-* Os dados produzidos deverão ser armazenados no servidor de banco de dados previamente criado em container;
+- [X] Os dados produzidos deverão ser armazenados no servidor de banco de dados
+previamente criado em container
 
-* Armazenar arquivos e imagens no servidor de armazenamento de objetos S3 previamente criado em container;
+- [ ] Orquestrar a solução final utilizando Docker Compose de modo que inclua todos os
+contêineres utilizados (Servidor S3, Banco de Dados, Artefato Java)
 
-* Orquestrar a solução final utilizando Docker Compose de modo que inclua todos os contêineres utilizados (Servidor S3, Banco de Dados, Artefato Java);
-
-* Utilizar Flyway Migrations para criar e popular tabelas do banco de dados.
 
 # Requisitos Específicos:
 
