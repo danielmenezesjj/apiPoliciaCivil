@@ -6,6 +6,8 @@ import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityNotExistExcept
 import Api.policia.civil.de.mato.grosso.core.domain.Cidade;
 import Api.policia.civil.de.mato.grosso.infrastructure.repository.Cidade.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -17,8 +19,8 @@ public class CidadeBusiness {
     private CidadeRepository cidadeRepository;
 
 
-    public List<Cidade> findAll(){
-        return cidadeRepository.findAll();
+    public Page<Cidade> findAll(Pageable pageable){
+        return cidadeRepository.findAll(pageable);
     }
 
     public Cidade findOne(Integer cid_id) throws EntityNotExistException{

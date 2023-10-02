@@ -9,6 +9,8 @@ import Api.policia.civil.de.mato.grosso.core.domain.Cidade;
 import Api.policia.civil.de.mato.grosso.infrastructure.repository.Cidade.CidadeRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,8 +31,8 @@ public class CidadeController {
     private CidadeRepository cidadeRepository;
 
     @GetMapping
-    public ResponseEntity<List<Cidade>> getAllCity() {
-        List<Cidade> allCity = cidadeBusiness.findAll();
+    public ResponseEntity<Page<Cidade>> getAllCity(Pageable pageable) {
+        Page<Cidade> allCity = cidadeBusiness.findAll(pageable);
         return ResponseEntity.ok(allCity);
     }
 
