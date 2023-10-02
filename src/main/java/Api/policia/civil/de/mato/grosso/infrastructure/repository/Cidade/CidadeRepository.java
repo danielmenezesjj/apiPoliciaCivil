@@ -10,4 +10,11 @@ public interface CidadeRepository  extends JpaRepository<Cidade, Integer> {
     //SELECT u FROM Unidade u WHERE u.unid_id = :unidId
     @Query("SELECT c FROM Cidade c where c.cid_id = :cidId")
     Optional<Cidade> findBycidid(Integer cidId);
+
+    @Query("SELECT c FROM Cidade c where c.cid_nome = :cidNome")
+    Optional<Cidade>findByNome(String cidNome);
+
+
+    @Query("SELECT c FROM Cidade c where c.cid_nome = :cidNome and cid_uf = :cidUf")
+    Optional<Object> findByNomeAndUf(String cidNome, String cidUf);
 }

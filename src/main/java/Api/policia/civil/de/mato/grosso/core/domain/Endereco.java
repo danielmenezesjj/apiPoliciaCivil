@@ -25,9 +25,12 @@ public class Endereco {
     private String end_logradouro;
     private String end_numero;
     private String end_bairro;
+
     @ManyToOne
     @JoinColumn(name = "cid_id")
     private Cidade cidade;
+
+
     @ManyToMany
     @JoinTable(name = "pessoa_endereco", joinColumns = @JoinColumn(name = "end_id"), inverseJoinColumns = @JoinColumn(name = "pes_id"))
     private List<Pessoa> pessoaList;
