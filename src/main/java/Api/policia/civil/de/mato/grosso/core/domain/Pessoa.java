@@ -2,11 +2,13 @@ package Api.policia.civil.de.mato.grosso.core.domain;
 
 
 import Api.policia.civil.de.mato.grosso.adapters.dtos.PessoaDTO;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class Pessoa {
 
     @ManyToMany
     @JoinTable(name = "pessoa_endereco", joinColumns = @JoinColumn(name = "pes_id"), inverseJoinColumns = @JoinColumn(name = "end_id"))
+    @JsonManagedReference // @JsonManagedReference é a parte direta da referência – aquela que é serializada normalmente
     private List<Endereco> enderecoList;
 
 
@@ -54,6 +57,10 @@ public class Pessoa {
         this.pes_sexo = data.pes_sexo();
         this.pes_mae = data.pes_mae();
         this.pes_pai = data.pes_pai();
+        this.enderecoList = new ArrayList<>();  // Inicialize a lista
+        if (data.endereco() != null) {
+            this.enderecoList.add(data.endereco());  // Adicione o endereço à lista
+        }
     }
 
     public void update(PessoaDTO data) {

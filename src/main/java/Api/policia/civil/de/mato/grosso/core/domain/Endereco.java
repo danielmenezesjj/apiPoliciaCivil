@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,6 +46,7 @@ public class Endereco {
 
     @ManyToMany
     @JoinTable(name = "pessoa_endereco", joinColumns = @JoinColumn(name = "end_id"), inverseJoinColumns = @JoinColumn(name = "pes_id"))
+    @JsonBackReference// @JsonBackReference é a parte posterior da referência – será omitida na serialização.
     private List<Pessoa> pessoaList;
 
     @ManyToMany
@@ -57,6 +59,10 @@ public class Endereco {
         this.numero = data.numero();
         this.bairro = data.bairro();
         this.cidade = data.cidade();
+        this.pessoaList = new ArrayList<>();  // Inicialize a lista
+        if (data.pessoa() != null) {
+            this.pessoaList.add(data.pessoa());  // Adicione a pessoa à lista
+        }
     }
 
 
