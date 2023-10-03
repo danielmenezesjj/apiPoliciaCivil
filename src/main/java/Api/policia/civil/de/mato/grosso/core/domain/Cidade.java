@@ -2,12 +2,14 @@ package Api.policia.civil.de.mato.grosso.core.domain;
 
 
 import Api.policia.civil.de.mato.grosso.adapters.dtos.CidadeDTO;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +26,8 @@ public class Cidade {
     private String cid_nome;
     private String cid_uf;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cidade")
-    private List<Endereco> enderecoList;
+    @JsonManagedReference// @JsonManagedReference é a parte direta da referência – aquela que é serializada normalmente
+    private List<Endereco> enderecos = new ArrayList<>();
 
 
     public Cidade(CidadeDTO data) {
