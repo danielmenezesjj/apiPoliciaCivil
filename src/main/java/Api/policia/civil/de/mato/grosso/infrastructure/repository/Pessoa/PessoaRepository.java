@@ -10,4 +10,8 @@ import java.util.Optional;
 public interface PessoaRepository extends JpaRepository<Pessoa, Integer> {
     @Query("SELECT p FROM Pessoa p WHERE p.pes_id = :pes_id")
     Optional<Pessoa> findByPesId(@Param("pes_id") Integer pes_id);
+
+
+    @Query("SELECT p FROM Pessoa p WHERE p.pes_nome = :pesNome")
+    Optional<Pessoa>findByPesNome(String pesNome);
 }

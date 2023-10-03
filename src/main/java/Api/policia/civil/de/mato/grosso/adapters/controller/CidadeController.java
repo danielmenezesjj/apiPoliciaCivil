@@ -27,8 +27,6 @@ public class CidadeController {
     @Autowired
     private CidadeBusiness cidadeBusiness;
 
-    @Autowired
-    private CidadeRepository cidadeRepository;
 
     @GetMapping
     public ResponseEntity<Page<Cidade>> getAllCity(Pageable pageable) {

@@ -24,8 +24,6 @@ public class EnderecoController {
     @Autowired
     private EnderecoBusiness enderecoBusiness;
 
-    @Autowired
-    private CidadeRepository cidadeRepository;
 
     @GetMapping
     public ResponseEntity<Page<Endereco>> getAllEndereco(Pageable pageable) {
