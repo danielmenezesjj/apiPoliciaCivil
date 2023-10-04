@@ -9,4 +9,7 @@ import java.util.Optional;
 public interface UnidadeRepository  extends JpaRepository<Unidade, Integer> {
     @Query("SELECT u FROM Unidade u WHERE u.unid_id = :unidId")
     Optional<Unidade> findByUnidId(Integer unidId);
+
+    @Query("SELECT u FROM Unidade u WHERE u.unid_nome = :unidNome")
+    Optional<Object> findByUnidName(String unidNome);
 }

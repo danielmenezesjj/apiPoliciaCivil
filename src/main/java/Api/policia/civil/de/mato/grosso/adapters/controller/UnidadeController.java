@@ -1,10 +1,16 @@
 package Api.policia.civil.de.mato.grosso.adapters.controller;
 
 import Api.policia.civil.de.mato.grosso.adapters.dtos.UnidadeDTO;
+import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityAlreadyExistException;
+import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityNotExistException;
+import Api.policia.civil.de.mato.grosso.core.businessRule.UnidadeBusiness;
 import Api.policia.civil.de.mato.grosso.core.domain.Unidade;
 import Api.policia.civil.de.mato.grosso.infrastructure.repository.Unidade.UnidadeRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -16,53 +22,48 @@ import java.util.Optional;
 public class UnidadeController {
 
     @Autowired
-    UnidadeRepository unidadeRepository;
+    UnidadeBusiness unidadeBusiness;
 
     @GetMapping
-    public ResponseEntity getAllUnidade(){
-        var unidades = unidadeRepository.findAll();
+    public ResponseEntity<Page<Unidade>> getAllUnidade(Pageable pageable){
+        var unidades = unidadeBusiness.findAll(pageable);
         return ResponseEntity.ok(unidades);
     }
 
 
     @GetMapping("/{unid_id}")
-    public ResponseEntity getOneUnidade(@PathVariable Integer unid_id){
-        Optional<Unidade> unidadeOptional = unidadeRepository.findByUnidId(unid_id);
-        if(unidadeOptional.isPresent()){
-            return ResponseEntity.ok(unidadeOptional.get());
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity getOneUnidade(@PathVariable Integer unid_id) throws EntityNotExistException {
+       var unidade = unidadeBusiness.findOne(unid_id);
+       return ResponseEntity.ok(unidade);
     }
 
 
     @PostMapping
-    public ResponseEntity createUnidade(@RequestBody @Valid UnidadeDTO data){
+    public ResponseEntity createUnidade(@RequestBody @Valid UnidadeDTO data) throws EntityAlreadyExistException {
         Unidade unidade = new Unidade(data);
-        unidadeRepository.save(unidade);
-        return ResponseEntity.ok().build();
+        unidadeBusiness.createUnidade(unidade);
+        return ResponseEntity.status(HttpStatus.CREATED).body(unidade);
     }
 
-    @PutMapping("/{unid_id}")
-    @Transactional
-    public ResponseEntity updateUnidade(@PathVariable Integer unid_id, @RequestBody @Valid UnidadeDTO data){
-        var unidade = unidadeRepository.getReferenceById(unid_id);
-        unidade.update(data);
-        return ResponseEntity.ok().build();
-    }
-
-    @DeleteMapping("/{unid_id}")
-    public ResponseEntity deleteUnidade(@PathVariable Integer unid_id){
-        Optional<Unidade> unidadeOptional = unidadeRepository.findByUnidId(unid_id);
-        if(unidadeOptional.isPresent()){
-            Unidade unidade = unidadeOptional.get();
-            unidadeRepository.delete(unidade);
-            return ResponseEntity.noContent().build();
-        }else{
-            return ResponseEntity.notFound().build();
-        }
-    }
-
+//    @PutMapping("/{unid_id}")
+//    @Transactional
+//    public ResponseEntity updateUnidade(@PathVariable Integer unid_id, @RequestBody @Valid UnidadeDTO data){
+//        var unidade = unidadeRepository.getReferenceById(unid_id);
+//        unidade.update(data);
+//        return ResponseEntity.ok().build();
+//    }
+//
+//    @DeleteMapping("/{unid_id}")
+//    public ResponseEntity deleteUnidade(@PathVariable Integer unid_id){
+//        Optional<Unidade> unidadeOptional = unidadeRepository.findByUnidId(unid_id);
+//        if(unidadeOptional.isPresent()){
+//            Unidade unidade = unidadeOptional.get();
+//            unidadeRepository.delete(unidade);
+//            return ResponseEntity.noContent().build();
+//        }else{
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
 
 }

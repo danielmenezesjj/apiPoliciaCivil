@@ -2,6 +2,7 @@ package Api.policia.civil.de.mato.grosso.core.domain;
 
 
 import Api.policia.civil.de.mato.grosso.adapters.dtos.PessoaDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -34,7 +35,6 @@ public class Pessoa {
 
     @ManyToMany
     @JoinTable(name = "pessoa_endereco", joinColumns = @JoinColumn(name = "pes_id"), inverseJoinColumns = @JoinColumn(name = "end_id"))
-    @JsonManagedReference // @JsonManagedReference é a parte direta da referência – aquela que é serializada normalmente
     private List<Endereco> enderecoList;
 
 

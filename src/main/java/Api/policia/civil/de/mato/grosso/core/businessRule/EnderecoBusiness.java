@@ -3,6 +3,7 @@ package Api.policia.civil.de.mato.grosso.core.businessRule;
 import Api.policia.civil.de.mato.grosso.adapters.dtos.EnderecoDTO;
 import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityAlreadyExistException;
 import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityNotExistException;
+import Api.policia.civil.de.mato.grosso.core.domain.Cidade;
 import Api.policia.civil.de.mato.grosso.core.domain.Endereco;
 import Api.policia.civil.de.mato.grosso.infrastructure.repository.Endereco.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class EnderecoBusiness {
 
     public Endereco createEndereco(Endereco endereco) throws EntityAlreadyExistException {
         if(enderecoRepository.findByCidadeAndBairroAndTipoLogradouroAndLogradouroAndNumero(
-                endereco.getCidade(),
+                (Cidade) endereco.getCidade(),
                 endereco.getBairro(),
                 endereco.getTipoLogradouro(),
                 endereco.getLogradouro(),

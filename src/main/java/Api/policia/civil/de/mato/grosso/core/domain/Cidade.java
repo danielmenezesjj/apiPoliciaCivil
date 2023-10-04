@@ -26,13 +26,17 @@ public class Cidade {
     private String cid_nome;
     private String cid_uf;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cidade")
-    @JsonManagedReference// @JsonManagedReference é a parte direta da referência – aquela que é serializada normalmente
-    private List<Endereco> enderecos = new ArrayList<>();
+   // @JsonManagedReference// @JsonManagedReference é a parte direta da referência – aquela que é serializada normalmente
+    private List<Endereco>enderecos;
 
 
     public Cidade(CidadeDTO data) {
         this.cid_nome = data.cid_nome();
         this.cid_uf = data.cid_uf();
+        this.enderecos = new ArrayList<>();
+        if(data.endereco() != null){
+            this.enderecos.add(data.endereco());
+        }
     }
 
     public void update(CidadeDTO data) {

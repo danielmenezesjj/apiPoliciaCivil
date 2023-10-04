@@ -4,6 +4,7 @@ package Api.policia.civil.de.mato.grosso.core.domain;
 import Api.policia.civil.de.mato.grosso.adapters.dtos.CidadeDTO;
 import Api.policia.civil.de.mato.grosso.adapters.dtos.EnderecoDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,7 +47,7 @@ public class Endereco {
 
     @ManyToMany
     @JoinTable(name = "pessoa_endereco", joinColumns = @JoinColumn(name = "end_id"), inverseJoinColumns = @JoinColumn(name = "pes_id"))
-    @JsonBackReference// @JsonBackReference é a parte posterior da referência – será omitida na serialização.
+    @JsonIgnore
     private List<Pessoa> pessoaList;
 
     @ManyToMany
@@ -81,7 +82,7 @@ public class Endereco {
             this.bairro = data.bairro();
         }
         if(data.cidade() != null){
-            this.cidade = data.cidade();
+            this.cidade =  data.cidade();
         }
 
     }
