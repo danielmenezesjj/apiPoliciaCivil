@@ -2,6 +2,7 @@ package Api.policia.civil.de.mato.grosso.core.businessRule;
 
 
 import Api.policia.civil.de.mato.grosso.adapters.dtos.PessoaDTO;
+import Api.policia.civil.de.mato.grosso.adapters.dtos.UnidadeDTO;
 import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityAlreadyExistException;
 import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityNotExistException;
 import Api.policia.civil.de.mato.grosso.core.domain.Pessoa;
@@ -41,25 +42,25 @@ public class UnidadeBusiness {
         return unidadeRepository.save(unidade);
     }
 
-//    public void updatePessoa(Integer pes_id, PessoaDTO data) throws EntityNotExistException {
-//        Optional<Pessoa> pessoaOptional = unidadeRepository.findByPesId(pes_id);
-//        if (pessoaOptional.isPresent()) {
-//            Pessoa pessoa = pessoaOptional.get();
-//            pessoa.update(data);
-//        }else{
-//            throw new EntityNotExistException(pes_id);
-//        }
-//    }
-//
-//    public void deletePessoa(Integer pes_id) throws  EntityNotExistException{
-//        Optional<Pessoa> optionalPessoa = unidadeRepository.findByPesId(pes_id);
-//        if(optionalPessoa.isPresent()){
-//            Pessoa pessoa = optionalPessoa.get();
-//            unidadeRepository.delete(pessoa);
-//        }else{
-//            throw new EntityNotExistException(pes_id);
-//        }
-//    }
+    public void updateUnidade(Integer unid_id, UnidadeDTO data) throws EntityNotExistException {
+        Optional<Unidade> unidadeOptional = unidadeRepository.findByUnidId(unid_id);
+        if (unidadeOptional.isPresent()) {
+            Unidade unidade = unidadeOptional.get();
+            unidade.update(data);
+        }else{
+            throw new EntityNotExistException(unid_id);
+        }
+    }
+
+    public void deleteUnidade(Integer unid_id) throws  EntityNotExistException{
+        Optional<Unidade> optionalUnidade = unidadeRepository.findByUnidId(unid_id);
+        if(optionalUnidade.isPresent()){
+            Unidade unidade = optionalUnidade.get();
+            unidadeRepository.delete(unidade);
+        }else{
+            throw new EntityNotExistException(unid_id);
+        }
+    }
 
 
 

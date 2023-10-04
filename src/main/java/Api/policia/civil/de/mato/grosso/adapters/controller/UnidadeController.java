@@ -45,25 +45,19 @@ public class UnidadeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(unidade);
     }
 
-//    @PutMapping("/{unid_id}")
-//    @Transactional
-//    public ResponseEntity updateUnidade(@PathVariable Integer unid_id, @RequestBody @Valid UnidadeDTO data){
-//        var unidade = unidadeRepository.getReferenceById(unid_id);
-//        unidade.update(data);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @DeleteMapping("/{unid_id}")
-//    public ResponseEntity deleteUnidade(@PathVariable Integer unid_id){
-//        Optional<Unidade> unidadeOptional = unidadeRepository.findByUnidId(unid_id);
-//        if(unidadeOptional.isPresent()){
-//            Unidade unidade = unidadeOptional.get();
-//            unidadeRepository.delete(unidade);
-//            return ResponseEntity.noContent().build();
-//        }else{
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+    @PutMapping("/{unid_id}")
+    @Transactional
+    public ResponseEntity updateUnidade(@PathVariable Integer unid_id, @RequestBody @Valid UnidadeDTO data) throws EntityNotExistException{
+        unidadeBusiness.updateUnidade(unid_id, data);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{unid_id}")
+    public ResponseEntity deleteUnidade(@PathVariable Integer unid_id) throws EntityNotExistException {
+        unidadeBusiness.deleteUnidade(unid_id);
+        return ResponseEntity.noContent().build();
+
+    }
 
 
 }

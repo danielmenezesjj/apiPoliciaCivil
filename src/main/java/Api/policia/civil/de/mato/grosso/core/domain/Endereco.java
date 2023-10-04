@@ -51,6 +51,7 @@ public class Endereco {
     private List<Pessoa> pessoaList;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "unidade_endereco", joinColumns = @JoinColumn(name = "end_id"), inverseJoinColumns = @JoinColumn(name = "unid_id"))
     private List<Unidade> unidadeList;
 

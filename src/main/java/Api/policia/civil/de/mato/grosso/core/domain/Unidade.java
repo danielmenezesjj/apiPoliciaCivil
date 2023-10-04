@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,6 +38,10 @@ public class Unidade {
     public Unidade(UnidadeDTO data) {
         this.unid_nome = data.unid_nome();
         this.unid_sigla = data.unid_sigla();
+        this.enderecoList = new ArrayList<>();  // Inicialize a lista
+        if (data.endereco() != null) {
+            this.enderecoList.add(data.endereco());  // Adicione o endereço à lista
+        }
     }
     public void update(UnidadeDTO data){
         if(data.unid_nome() != null){
