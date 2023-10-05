@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface ServidorTemporarioRepository  extends JpaRepository<ServidorTemporario, Integer> {
 
 
+    @Query("SELECT temporario FROM ServidorTemporario temporario WHERE temporario.pessoa.pes_id = :pesId")
+    Optional<ServidorTemporario> findByPesId(Integer pesId);
 }

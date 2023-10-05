@@ -41,12 +41,10 @@ public class Pessoa {
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<FotoPessoa> fotoPessoaList;
 
-    @OneToMany
-    @JoinColumn(name = "pes_id")
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<ServidorTemporario> servidorTemporarioList;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    @JsonManagedReference
     private List<ServidorEfetivo> servidorEfetivoList;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)

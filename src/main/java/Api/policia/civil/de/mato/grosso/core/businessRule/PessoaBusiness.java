@@ -8,7 +8,10 @@ import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityNotExistExcept
 import Api.policia.civil.de.mato.grosso.core.domain.Cidade;
 import Api.policia.civil.de.mato.grosso.core.domain.Endereco;
 import Api.policia.civil.de.mato.grosso.core.domain.Pessoa;
+import Api.policia.civil.de.mato.grosso.core.domain.ServidorTemporario;
 import Api.policia.civil.de.mato.grosso.infrastructure.repository.Pessoa.PessoaRepository;
+import Api.policia.civil.de.mato.grosso.infrastructure.repository.ServidorEfetivo.ServidorEfetivoRepository;
+import Api.policia.civil.de.mato.grosso.infrastructure.repository.ServidorTemporario.ServidorTemporarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +25,11 @@ public class PessoaBusiness {
 
     @Autowired
     private PessoaRepository pessoaRepository;
+    @Autowired
+    ServidorTemporarioRepository servidorTemporarioRepository;
+
+    @Autowired
+    ServidorEfetivoRepository servidorEfetivoRepository;
 
     public Page<Pessoa> findAll(Pageable pageable){
         return pessoaRepository.findAll(pageable);
