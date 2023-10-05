@@ -1,7 +1,9 @@
 package Api.policia.civil.de.mato.grosso.core.domain;
 
 
+import Api.policia.civil.de.mato.grosso.adapters.dtos.FotoPessoaDTO;
 import Api.policia.civil.de.mato.grosso.adapters.dtos.UnidadeDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,10 +25,15 @@ public class FotoPessoa {
     private Integer fp_id;
     @ManyToOne
     @JoinColumn(name = "pes_id")
+    @JsonIgnore
     private Pessoa pessoa;
-    private Date fp_data;
-    private String fp_bucket;
-    private String fp_hash;
+    @Lob
+    @Column(name = "imagemBase64", columnDefinition = "LONGBLOB")
+    private byte[] imagemBase64;
 
 
+    public FotoPessoa(FotoPessoaDTO data) {
+        this.imagemBase64 = data.imagemBase64().getBytes();
+        this.pessoa = data.pessoa();
+    }
 }
