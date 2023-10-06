@@ -1,3 +1,17 @@
+# :link: Dependencias 
+![SpringBoot](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![MySql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
+# Iniciar Projeto
+## :desktop_computer: Start
+```
+mvn package
+docker-compose up
+```
+
+
 # Pré-requisitos
 
 Antes de começar a realizar o teste prático, certifique-se de atender aos seguintes pré-requisitos:
@@ -39,18 +53,7 @@ contêineres utilizados (Servidor S3, Banco de Dados, Artefato Java)
 
 * Criar um endpoint que permita consultar o endereço funcional (da unidade onde o servidor é lotado) a partir de uma parte do nome do servidor efetivo.
 
-## :link: Dependencias 
-![SpringBoot](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![MySql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-# Iniciar Projeto
-## :desktop_computer: Start
-```
-mvn package
-docker-compose up
-```
 
 
 
