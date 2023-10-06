@@ -15,7 +15,7 @@ Antes de começar a realizar o teste prático, certifique-se de atender aos segu
 - [X] Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
 endpoint a partir de domínios diversos do qual estará hospedado o serviço
 
-- [ ] A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
+- [X] A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
 renovação do período
 
 - [X] Implementar pelo menos os verbos post, put, get
@@ -39,7 +39,13 @@ contêineres utilizados (Servidor S3, Banco de Dados, Artefato Java)
 
 * Criar um endpoint que permita consultar o endereço funcional (da unidade onde o servidor é lotado) a partir de uma parte do nome do servidor efetivo.
 
-# Run project
+## :link: Dependencias 
+![SpringBoot](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![MySql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
+# Iniciar Projeto
 ## :desktop_computer: Start
 ```
 mvn package
