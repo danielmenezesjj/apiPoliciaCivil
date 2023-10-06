@@ -12,7 +12,7 @@ Antes de começar a realizar o teste prático, certifique-se de atender aos segu
 
 # Requisitos Gerais:
 
-- [ ] Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
+- [X] Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
 endpoint a partir de domínios diversos do qual estará hospedado o serviço
 
 - [ ] A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
@@ -25,7 +25,7 @@ renovação do período
 - [X] Os dados produzidos deverão ser armazenados no servidor de banco de dados
 previamente criado em container
 
-- [ ] Orquestrar a solução final utilizando Docker Compose de modo que inclua todos os
+- [X] Orquestrar a solução final utilizando Docker Compose de modo que inclua todos os
 contêineres utilizados (Servidor S3, Banco de Dados, Artefato Java)
 
 
@@ -39,6 +39,12 @@ contêineres utilizados (Servidor S3, Banco de Dados, Artefato Java)
 
 * Criar um endpoint que permita consultar o endereço funcional (da unidade onde o servidor é lotado) a partir de uma parte do nome do servidor efetivo.
 
+# Run project
+## :desktop_computer: Start
+```
+mvn package
+docker-compose up
+```
 
 
 
