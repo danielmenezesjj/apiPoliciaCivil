@@ -1,6 +1,5 @@
 version: "3.9"
 services:
-
   mysql-api:
     image: mysql
     container_name: mysql-container
@@ -9,3 +8,15 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: pcmatogrosso
+
+  api:
+    image: imgapipolicia
+    container_name: api-policia-civil
+    ports:
+      - 8082:8082
+    depends_on:
+      - mysql-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-api:3306/pcmatogrosso
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123456

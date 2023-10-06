@@ -1,4 +1,4 @@
-package Api.policia.civil.de.mato.grosso.infrastructure.repository;
+package Api.policia.civil.de.mato.grosso.infrastructure.repository.FotoPessoa;
 
 import Api.policia.civil.de.mato.grosso.core.domain.FotoPessoa;
 import org.springframework.data.jpa.repository.JpaRepository;

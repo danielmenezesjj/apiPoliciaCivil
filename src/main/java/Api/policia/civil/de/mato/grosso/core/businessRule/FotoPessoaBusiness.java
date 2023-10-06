@@ -1,26 +1,17 @@
 package Api.policia.civil.de.mato.grosso.core.businessRule;
 
-import Api.policia.civil.de.mato.grosso.adapters.dtos.CidadeDTO;
-import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityAlreadyExistException;
-import Api.policia.civil.de.mato.grosso.adapters.exceptions.EntityNotExistException;
-import Api.policia.civil.de.mato.grosso.core.domain.Cidade;
 import Api.policia.civil.de.mato.grosso.core.domain.FotoPessoa;
 import Api.policia.civil.de.mato.grosso.core.domain.Pessoa;
-import Api.policia.civil.de.mato.grosso.infrastructure.repository.Cidade.CidadeRepository;
-import Api.policia.civil.de.mato.grosso.infrastructure.repository.FotoPessoaRepository;
+import Api.policia.civil.de.mato.grosso.infrastructure.repository.FotoPessoa.FotoPessoaRepository;
 import Api.policia.civil.de.mato.grosso.infrastructure.repository.Pessoa.PessoaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class FotoPessoaBusiness {

@@ -1,7 +1,7 @@
 package Api.policia.civil.de.mato.grosso.core.domain;
 
 
-import Api.policia.civil.de.mato.grosso.adapters.dtos.CidadeDTO;
+import Api.policia.civil.de.mato.grosso.adapters.dtos.LotacaoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.List;
 
 
 @Entity(name = "Lotacao")
@@ -37,6 +36,30 @@ public class Lotacao {
 
     private String lot_portaria;
 
+    public Lotacao(LotacaoDTO data) {
+
+        this.lot_data_lotacao = data.lot_data_lotacao();
+        this.lot_data_remocao = data.lot_data_remocao();
+        this.pessoa = data.pessoa();
+        this.unidade = data.unidade();
+
+    }
 
 
+    public void update(LotacaoDTO data) {
+
+        if(data.lot_data_lotacao() != null){
+            this.lot_data_lotacao = data.lot_data_lotacao();
+        }
+        if(data.lot_data_remocao() != null){
+            this.lot_data_remocao = data.lot_data_remocao();
+        }
+        if(data.pessoa() != null){
+            this.pessoa = data.pessoa();
+        }
+        if(data.unidade() != null){
+            this.unidade = data.unidade();
+        }
+
+    }
 }
