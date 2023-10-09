@@ -26,10 +26,10 @@ Antes de começar a realizar o teste prático, certifique-se de atender aos segu
 
 # Requisitos Gerais:
 
-- [X] Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
+- [ ] Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
 endpoint a partir de domínios diversos do qual estará hospedado o serviço
 
-- [X] A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
+- [ ] A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
 renovação do período
 
 - [X] Implementar pelo menos os verbos post, put, get
